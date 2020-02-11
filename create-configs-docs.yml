@@ -1,0 +1,7 @@
+---
+- name: Apply role1
+  gather_facts: no
+  hosts: localhost
+
+  roles:
+   - role1

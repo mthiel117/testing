@@ -1,0 +1,8 @@
+---
+- name: Generate config files
+  template: src={{ item.profile }}.j2 dest=./configs/{{ item.hostname }}.cfg
+  loop: "{{ switches }}"
+
+  # Generate Documentation in Markdown format
+- name: Generate documentation file
+  template: src=./templates/readme.j2 dest=./docs/README.md
