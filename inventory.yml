@@ -1,0 +1,24 @@
+all:
+  children:
+    switches:
+      children:
+        spines:
+          vars:
+            asn: 65001
+          hosts:
+            eos1:
+              type: spine
+              router-id: 1.1.1.1
+            eos2:
+              type: spine
+              router-id: 1.1.1.2
+        leafs:
+          vars:
+            asn: 65101
+          hosts:
+            eos3:
+              type: leaf
+              router-id: 1.1.1.3
+            eos4:
+              type: leaf
+              router-id: 1.1.1.4
