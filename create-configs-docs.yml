@@ -1,7 +1,7 @@
 ---
-- name: Apply Create Configs and Documentation
-  gather_facts: no
-  hosts: FABRIC
+- name: Create MLAG EOS Configs and Documentation for Fabric
+  hosts: FABRIC # group defined in inventory.yml
 
   roles:
-   - eos_cli_config_gen
+    # Generate Configs and Markdown Documentation
+    - eos_mlag_config_gen
