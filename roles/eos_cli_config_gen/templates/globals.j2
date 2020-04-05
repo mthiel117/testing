@@ -1,0 +1,13 @@
+# Config for {{ hostvars[inventory_hostname]['type'] }} - {{ inventory_hostname }}
+hostname {{ inventory_hostname | upper }}
+!
+interface Lookback0
+   ip address {{ hostvars[inventory_hostname]['mgmt_ip'] }}/32
+!
+{% for ntp_server in ntp_servers %}
+ntp-server {{ ntp_server }}
+{% endfor %}
+!
+{% for syslog_server in syslog_servers %}
+syslog host {{ syslog_server }}
+{% endfor %}

@@ -1,0 +1,23 @@
+## Device Documentation
+
+| Hostname | MGMT IP Address | Node Type
+| :--- | :---| :--- |
+{% for device in switch_nodes %}
+| {{ device | upper }} | {{ hostvars[device]['mgmt_ip'] }} | {{ hostvars[device]['type'] }}
+{% endfor %}
+&nbsp;
+&nbsp;
+
+## Config Example
+
+```
+hostname LEAF101
+!
+interface Lookback0
+   ip address 10.10.10.1/32
+!
+ntp-server 10.50.100.10
+ntp-server 10.50.100.11
+!
+syslog host 10.50.102.10
+```

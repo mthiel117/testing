@@ -1,7 +1,7 @@
 ---
-- name: Apply role1
+- name: Apply Create Configs and Documentation
   gather_facts: no
-  hosts: localhost
+  hosts: FABRIC
 
   roles:
-   - role1
+   - eos_cli_config_gen
