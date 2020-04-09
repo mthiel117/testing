@@ -2,10 +2,10 @@
 
 | Hostname | MGMT IP Address | Node Type
 | :--- | :---| :--- |
-| EOS1 | 192.168.1.250 | spine
-| EOS2 | 192.168.1.251 | spine
-| EOS3 | 192.168.1.252 | leaf
-| EOS4 | 192.168.1.253 | leaf
+| SPINE1 | 192.168.1.250 | spine
+| SPINE2 | 192.168.1.251 | spine
+| LEAF1A | 192.168.1.252 | leaf
+| LEAF1B | 192.168.1.253 | leaf
 &nbsp;
 &nbsp;
 
