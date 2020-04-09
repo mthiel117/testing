@@ -12,7 +12,7 @@ interface {{interface}}
 {# Actual Port-Channels #}
 {%   for lag_id, values in lag_port_channels.lag_ids.items() %}
 interface Port-Channel{{ lag_id }}
-   description Link to {{values['device'][loop.index0]}}
+   description Port-Channel to {% for device in values['device'] %}{{ device }}{% if not loop.last %}/{% endif %}{% endfor %} 
    switchport mode trunk
    mlag {{ lag_id }}
 !

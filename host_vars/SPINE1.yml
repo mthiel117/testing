@@ -15,7 +15,3 @@ lag_port_channels:
     1:
       interfaces: [Ethernet1,Ethernet2]
       device: [LEAF1A,LEAF1B] # for description purposes
-    2:
-      interfaces: [Ethernet3,Ethernet4]
-      device: [LEAF2A,LEAF2B] # for description purposes
-
