@@ -1,0 +1,12 @@
+{% if mlag is defined %}
+mlag configuration
+   domain-id {{mlag.domain_id}}
+   local-interface Vlan{{ mlag.vlan }}
+{%   if mlag_side == 'A' %}
+   peer-address 192.0.0.2
+{%   else                %}
+   peer-address 192.0.0.1
+{%   endif               %}
+   peer-link Port-Channel{{ mlag.port_channel }}
+!
+{%- endif %}

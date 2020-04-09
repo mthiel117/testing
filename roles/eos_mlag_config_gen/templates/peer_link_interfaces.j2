@@ -1,0 +1,8 @@
+{% if peer_link_interfaces is defined %}
+{% for peer_link_interface in peer_link_interfaces %}
+interface {{ peer_link_interface }}
+   description MLAG Peer Link
+   channel-group {{ mlag.port_channel }} mode active
+!
+{% endfor %}
+{% endif %}

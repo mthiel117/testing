@@ -4,15 +4,15 @@ all:
       children:
         SPINES:
           hosts:
-            EOS1:
+            SPINE1:
               ansible_host: 192.168.1.250
-            EOS2:
+            SPINE2:
               ansible_host: 192.168.1.251
         LEAFS:
           hosts:
-            EOS3:
+            LEAF1A:
               ansible_host: 192.168.1.252
-            EOS4:
+            LEAF1B:
               ansible_host: 192.168.1.253
 
       # Define connection to each host

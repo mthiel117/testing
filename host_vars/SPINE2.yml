@@ -1,0 +1,17 @@
+type: spine
+mgmt_ip: 192.168.1.251
+
+# MLAG
+peer_link_interfaces:
+  - Ethernet47
+  - Ethernet48
+# Define side A or side B of MLAG
+mlag_side: B
+mlag_peer: SPINE1
+
+# Define LAGs here - match A & B side Spine/Leaf YML files
+lag_port_channels:
+  lag_ids:
+    1:
+      interfaces: [Ethernet1,Ethernet2]
+      device: [LEAF1A,LEAF1B] # for description purposes

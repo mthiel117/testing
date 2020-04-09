@@ -1,0 +1,6 @@
+interface {{ mgmt_interface }}
+{% if mgmt_vrf is defined and mgmt_vrf is not none %}
+   vrf {{ mgmt_vrf }}
+{% endif %}
+   ip address {{ mgmt_ip }}{{ mgmt_netmask }}
+!

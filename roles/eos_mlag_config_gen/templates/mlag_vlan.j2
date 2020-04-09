@@ -1,0 +1,6 @@
+{% if mlag is defined %}
+vlan {{ mlag.vlan }}
+  name {{ mlag.name }}
+  trunk group {{ mlag.name }}
+!
+{%- endif %}

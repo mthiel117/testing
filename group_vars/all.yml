@@ -1,6 +1,53 @@
 # Global Variables for all Hosts
 ntp_servers:
   - 192.168.1.246
-  - 192.168.1.247
+  - time.google.com
 syslog_servers:
   - 192.168.1.246
+cvp_server:
+  -192.168.1.248
+dns_servers:
+  - 192.168.1.246
+  - 8.8.8.8
+cvp_ingest_key: magickey
+domain_name: thielnet.com
+timezone: US/Eastern
+
+# Management VRF for switch (Defaults)
+mgmt_vrf: MGMT # (Default: MGMT)
+mgmt_netmask: /24
+mgmt_interface: Management1
+default_gw: 192.168.1.1
+
+# Spanning-Tree Mode (mstp, rstp, rapid-pvst)
+stp_mode: rapid-pvst
+
+# MLAG Info
+mlag:
+  vlan: 4094
+  name: MLAGPEER
+  domain_id: MLAG
+  port_channel: 1000
+
+# AAA - User info
+local_users:
+  admin:
+    priv: 15
+    role: network-admin
+    sha512_secret: $6$VjNhzmCAxU1sUoTD$MLREvtwRBkraoOII322Yo5NTXSrSRpzsAFcq2JcW5GZOtQF4M3hpJZS1DeO0o/zuvY66JffJD0isnW0Tj6fxH/
+  cvpadmin:
+    priv: 15
+    role: network-admin
+    sha512_secret: $6$PpXEtQeyPZGN34LR$hZ8n2FOw/6qBLFZPXJunTDwOVN9NIsLmNTlVe7d4QZq82G3iDYxmFoM5umGDqlLZQQTebCQWBrHFbse8fFmse1
+
+
+# Terminattr Details
+daemon_terminattr:
+  ingestgrpcurl:
+    ips:
+      - 192.168.1.248
+    port: 9910
+  ingestauth_key: magickey
+  smashexcludes: "ale,flexCounter,hardware,kni,pulse,strata"
+  ingestexclude: "/Sysdb/cell/1/agent,/Sysdb/cell/2/agent"
+

@@ -1,0 +1,10 @@
+aaa authorization exec default local
+!
+no aaa root
+!
+{% if local_users is defined and local_users is not none %}
+{% for local_user in local_users %}
+username {{ local_user }} privilege {{ local_users[local_user].priv }} role {{ local_users[local_user].role }} secret sha512 {{ local_users[local_user].sha512_secret }}
+{% endfor %}
+{% endif %}
+!

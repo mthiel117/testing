@@ -1,0 +1,12 @@
+{% if mgmt_vrf is defined and mgmt_vrf is not none %}
+ip route vrf {{ mgmt_vrf }} 0.0.0.0/0 {{ default_gw }}
+!
+no ip routing
+ip routing vrf {{ mgmt_vrf }}
+!
+{% else %}
+ip route 0.0.0.0/0 {{ default_gw }}
+!
+ip routing
+!
+{%- endif %}

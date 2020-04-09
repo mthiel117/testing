@@ -1,5 +1,56 @@
-{# Device Configuration #}
-{# {# !RANCID-CONTENT-TYPE: arista
-!
-{# global common info, hostname, ntp, syslog, etc... #}
-{% include 'globals.j2' %}
+{# terminal length #}
+{% include 'terminal_length.j2' %}
+
+{# aliases #}
+{% include 'aliases.j2' %}
+
+{# terminattr #}
+{% include 'terminattr.j2' %}
+
+{# event-monitor #}
+{% include 'event-monitor.j2' %}
+
+{# LANZ #}
+{% include 'lanz.j2' %}
+
+{# Hostname #}
+{% include 'hostname.j2' %}
+
+{# DNS #}
+{% include 'dns.j2' %}
+
+{# NTP #}
+{% include 'ntp.j2' %}
+
+{# STP #}
+{% include 'stp.j2' %}
+
+{# AAA #}
+{% include 'aaa.j2' %}
+
+{# Timezone #}
+{% include 'timezone.j2' %}
+
+{# VLANs #}
+{% include 'mlag_vlan.j2' %}
+
+{# VRFs #}
+{% include 'vrfs.j2' %}
+
+{# Port-Channels #}
+{% include 'port-channels.j2' %}
+
+{# Peer-Links #}
+{% include 'peer_link_interfaces.j2' %}
+{# Management Interface #}
+{% include 'management.j2' %}
+
+{# SVI's #}
+{% include 'svis.j2' %}
+{# Routing #}
+{% include 'routing.j2' %}
+{# MLAG #}
+{% include 'mlag.j2' %}
+
+{# Management API #}
+{% include 'mgmt_api.j2' %}

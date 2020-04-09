@@ -1,0 +1,19 @@
+{# Management VRF #}
+{% if dns_servers is not none and mgmt_vrf is not none %}
+ip domain lookup vrf {{ mgmt_vrf }} source-interface Management1
+{% for dns_server in dns_servers %}
+ip name-server vrf {{ mgmt_vrf }} {{ dns_server }}
+{% endfor %}
+{% endif %}
+{# No Management VRF #}
+{% if dns_servers is not none and mgmt_vrf is none %}
+ip domain lookup source-interface Management1
+{% for dns_server in dns_servers %}
+ip name-server {{ dns_server }}
+{% endfor %}
+{# Domain Name #}
+{% endif %}
+{% if domain_name is not none %}
+ip domain-name {{ domain_name }}
+{% endif %}
+!

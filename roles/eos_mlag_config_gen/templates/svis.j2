@@ -1,0 +1,13 @@
+{# SVI's #}
+{# MLAG Peer SVI #}
+{% if mlag is defined     %}
+interface Vlan{{ mlag.vlan }}
+   description MLAG PEER
+   no autostate
+{%    if mlag_side == 'A' %}
+   ip address 192.0.0.1/30
+{%    else                %}
+   ip address 192.0.0.2/30
+{%    endif               %}
+!
+{% endif                  %}

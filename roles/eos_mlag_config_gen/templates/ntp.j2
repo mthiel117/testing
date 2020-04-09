@@ -1,0 +1,13 @@
+{# Management VRF #}
+{% if ntp_servers is not none and mgmt_vrf is not none %}
+{% for ntp_server in ntp_servers %}
+ntp server vrf {{ mgmt_vrf }} {{ ntp_server }} iburst maxpoll 3
+{% endfor %}
+{% endif %}
+{# No Management VRF #}
+{% if ntp_servers is not none and mgmt_vrf is none %}
+{% for ntp_server in ntp_servers %}
+ntp server {{ ntp_server }} iburst maxpoll 3
+{% endfor %}
+{% endif %}
+!

@@ -1,0 +1,28 @@
+{# Ethernet Interfaces for Port-Channels #}
+{% if lag_port_channels is defined and lag_port_channels is not none %}
+{%   for lag_id, values in lag_port_channels.lag_ids.items() %}
+{%      for interface in values['interfaces']%}
+interface {{interface}}
+   description Link to {{values['device'][loop.index0]}}
+   switchport mode trunk
+   channel-group {{ lag_id }} mode active
+!
+{%      endfor %}
+{%   endfor %}
+{# Actual Port-Channels #}
+{%   for lag_id, values in lag_port_channels.lag_ids.items() %}
+interface Port-Channel{{ lag_id }}
+   description Link to {{values['device'][loop.index0]}}
+   switchport mode trunk
+   mlag {{ lag_id }}
+!
+{%   endfor %}
+{% endif %}
+{# MLAG Port-Channel #}
+{% if mlag is defined %}
+interface Port-Channel{{ mlag.port_channel }}
+   description MLAG PEER-LINK
+   switchport mode trunk
+   switchport trunk group {{ mlag.name }}
+!
+{%- endif %}

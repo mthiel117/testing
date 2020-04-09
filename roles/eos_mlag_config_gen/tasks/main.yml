@@ -2,8 +2,8 @@
 
 # Generate EOS Intended Configuration File
 - name: Generate config files
-  #template: src={{ hostvars[inventory_hostname]['type'] }}.j2 dest=./configs/{{ inventory_hostname }}.cfg
   template: src=eos_intended_config.j2 dest=./configs/{{ inventory_hostname }}.cfg
+  tags: [configs]
 
 
   # Generate Documentation in Markdown format
@@ -11,5 +11,4 @@
   vars:
     switch_nodes: "{{ groups['FABRIC'] }}"
   template: src=readme.j2 dest=./docs/README.md
-  tags:
-    - docs
+  tags: [docs]
